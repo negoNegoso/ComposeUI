@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
@@ -20,10 +21,12 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.fatec.composeui.ui.components.button.CustomElevatedButton
 import com.fatec.composeui.ui.components.button.CustomFilledButton
 import com.fatec.composeui.ui.components.button.CustomFilledTonalButton
 import com.fatec.composeui.ui.components.button.CustomOutlinedButton
+import com.fatec.composeui.ui.components.button.CustomTextButton
 import com.fatec.composeui.ui.theme.ComposeUITheme
 
 class MainActivity : ComponentActivity() {
@@ -39,7 +42,8 @@ class MainActivity : ComponentActivity() {
 //                CustomLargeTopAppBar()
 //                CustomBottomAppBar()
                 Scaffold(
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier
+                        .fillMaxSize()
                         .padding(WindowInsets.systemBars.asPaddingValues()),
                     topBar = {
                         TopAppBar(
@@ -54,30 +58,34 @@ class MainActivity : ComponentActivity() {
                     }
 
                 ) { innerPadding ->
-                    Column(
-                        modifier = Modifier
-                            .padding(innerPadding),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        CustomFilledButton(onClick = {
-                            println("CustomFilledButton")
-                        })
+                    Box(modifier = Modifier.padding(innerPadding))
 
-                        CustomFilledTonalButton(onClick = {
-                            println("CustomFilledTonalButton")
-                        })
+                }
 
-                        CustomOutlinedButton(onClick = {
-                            println("CustomOutlinedButton")
-                        })
-                        CustomElevatedButton(onClick = {
-                            println("CustomElevatedButton")
-                        })
-
-                    }
+                Column(
+                    modifier = Modifier.padding(top = 12.dp),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    CustomFilledButton(onClick = {
+                        println("CustomFilledButton")
+                    })
+                    CustomFilledTonalButton(onClick = {
+                        println("CustomFilledTonalButton")
+                    })
+                    CustomOutlinedButton(onClick = {
+                        println("CustomOutlinedButton")
+                    })
+                    CustomElevatedButton(onClick = {
+                        println("CustomElevatedButton")
+                    })
+                    CustomTextButton(onClick = {
+                        println("CustomTextButton")
+                    })
                 }
             }
         }
     }
 }
+
+
