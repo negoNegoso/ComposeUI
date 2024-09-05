@@ -63,9 +63,11 @@ class MainActivity : ComponentActivity() {
                 }
 
                 Column(
-                    modifier = Modifier.padding(top = 12.dp),
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                        .fillMaxSize() // Preenche toda a tela
+                        .padding(16.dp), // Adiciona um padding para evitar que os botões fiquem colados nas bordas
+                    verticalArrangement = Arrangement.Center, // Alinha verticalmente ao centro
+                    horizontalAlignment = Alignment.CenterHorizontally // Alinha horizontalmente ao centro
                 ) {
                     CustomFilledButton(onClick = {
                         println("CustomFilledButton")
