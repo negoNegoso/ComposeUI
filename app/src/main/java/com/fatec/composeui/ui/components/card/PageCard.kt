@@ -49,7 +49,8 @@ fun PageCard() {
             horizontalAlignment = Alignment.CenterHorizontally, // Alinha horizontalmente ao centro
         ) {
             CustomBasicCard()
-            CustomFilledCard()
+            CustomFilledCard(stateUser = true)
+            CustomFilledCard(stateUser = false)
             CustomElevatedCard()
             CustomOutlinedCard()
             CustomCompleteCard()

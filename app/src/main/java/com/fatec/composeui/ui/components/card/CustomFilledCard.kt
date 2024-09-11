@@ -8,14 +8,24 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun CustomFilledCard() {
+fun CustomFilledCard(stateUser:Boolean) {
+    //    val stateUser = false
+    val isLoggedColor = if(stateUser){
+        MaterialTheme.colorScheme.primaryContainer
+    }else{
+        MaterialTheme.colorScheme.surfaceVariant
+    }
+
+    val config = ConfigCustomFilledCard(containerColor = isLoggedColor)
+
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+            containerColor = config.containerColor,
         ),
         modifier = Modifier.size(width = 240.dp, height = 100.dp)
     ) {
@@ -27,3 +37,5 @@ fun CustomFilledCard() {
         )
     }
 }
+
+class ConfigCustomFilledCard(val containerColor: Color)
