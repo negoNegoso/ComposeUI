@@ -50,7 +50,7 @@ fun PageCard() {
         ) {
             CustomBasicCard()
             CustomFilledCard(stateUser = true)
-            CustomFilledCard(stateUser = false)
+//            CustomFilledCard(stateUser = false)
             CustomElevatedCard()
             CustomOutlinedCard()
             CustomCompleteCard()

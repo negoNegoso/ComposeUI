@@ -20,7 +20,7 @@ fun CustomOutlinedCard() {
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface,
         ),
-        border = BorderStroke(1.dp, Color.Black),
+        border = BorderStroke(2.dp, Color.Black),
         modifier = Modifier
             .size(width = 240.dp, height = 100.dp)
     ) {

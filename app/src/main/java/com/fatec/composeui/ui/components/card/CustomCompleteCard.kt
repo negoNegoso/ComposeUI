@@ -50,7 +50,7 @@ fun CustomCompleteCard() {
             ) {
                 Surface(
                     shape = CircleShape,
-                    color = Color(0xFF9C27B0),
+                    color = Color(0xFF8BC34A),
                     modifier = Modifier
                         .size(40.dp)
                         .padding(4.dp)
