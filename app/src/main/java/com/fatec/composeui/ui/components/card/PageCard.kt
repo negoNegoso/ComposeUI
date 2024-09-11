@@ -26,6 +26,7 @@ fun PageCard() {
         modifier = Modifier
             .fillMaxSize()
             .padding(WindowInsets.systemBars.asPaddingValues()),
+
         topBar = {
             TopAppBar(
                 title = {
@@ -43,12 +44,15 @@ fun PageCard() {
         Column(
             modifier = Modifier
                 .fillMaxSize() // Preenche toda a tela
-                .padding(16.dp), // Adiciona um padding para evitar que os botões fiquem colados nas bordas
-            verticalArrangement = Arrangement.Center, // Alinha verticalmente ao centro
+                .padding(innerPadding), // Adiciona um padding para evitar que os botões fiquem colados nas bordas
+            verticalArrangement = Arrangement.spacedBy(16.dp), // Alinha verticalmente ao centro
             horizontalAlignment = Alignment.CenterHorizontally, // Alinha horizontalmente ao centro
         ) {
             CustomBasicCard()
             CustomFilledCard()
+            CustomElevatedCard()
+            CustomOutlinedCard()
+            CustomCompleteCard()
         }
     }
 }
