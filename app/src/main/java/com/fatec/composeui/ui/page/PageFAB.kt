@@ -1,4 +1,4 @@
-package com.fatec.composeui.ui.components.button
+package com.fatec.composeui.ui.page
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,10 +18,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.fatec.composeui.ui.components.fab.CustomFAB
+import com.fatec.composeui.ui.components.fab.CustomFABExtended
+import com.fatec.composeui.ui.components.fab.CustomFABLarge
+import com.fatec.composeui.ui.components.fab.CustomFABSmall
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun PageButtons() {
+@OptIn(ExperimentalMaterial3Api::class)
+fun PageFAB() {
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
@@ -29,7 +33,7 @@ private fun PageButtons() {
         topBar = {
             TopAppBar(
                 title = {
-                    Text("Button")
+                    Text("Floating Action Button")
                 },
                 colors = topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
@@ -45,23 +49,13 @@ private fun PageButtons() {
                 .fillMaxSize() // Preenche toda a tela
                 .padding(16.dp), // Adiciona um padding para evitar que os botões fiquem colados nas bordas
             verticalArrangement = Arrangement.Center, // Alinha verticalmente ao centro
-            horizontalAlignment = Alignment.CenterHorizontally // Alinha horizontalmente ao centro
+            horizontalAlignment = Alignment.CenterHorizontally, // Alinha horizontalmente ao centro
         ) {
-            CustomFilledButton(onClick = {
-                println("CustomFilledButton")
-            })
-            CustomFilledTonalButton(onClick = {
-                println("CustomFilledTonalButton")
-            })
-            CustomOutlinedButton(onClick = {
-                println("CustomOutlinedButton")
-            })
-            CustomElevatedButton(onClick = {
-                println("CustomElevatedButton")
-            })
-            CustomTextButton(onClick = {
-                println("CustomTextButton")
-            })
+            CustomFAB(onClick = { println("CustomFAB") })
+            CustomFABSmall(onClick = { println("CustomFABSmall") })
+            CustomFABLarge(onClick = { println("CustomFABLarge") })
+            CustomFABExtended(onClick = { println("CustomFABExtended") })
+
         }
     }
 }

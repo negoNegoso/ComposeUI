@@ -1,4 +1,4 @@
-package com.fatec.composeui.ui.components.fab
+package com.fatec.composeui.ui.page
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,18 +18,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.fatec.composeui.ui.components.card.CustomBasicCard
+import com.fatec.composeui.ui.components.card.CustomCompleteCard
+import com.fatec.composeui.ui.components.card.CustomElevatedCard
+import com.fatec.composeui.ui.components.card.CustomFilledCard
+import com.fatec.composeui.ui.components.card.CustomOutlinedCard
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
-fun PageFAB() {
+fun PageCard() {
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
             .padding(WindowInsets.systemBars.asPaddingValues()),
+
         topBar = {
             TopAppBar(
                 title = {
-                    Text("Floating Action Button")
+                    Text("Page Card")
                 },
                 colors = topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
@@ -43,15 +49,16 @@ fun PageFAB() {
         Column(
             modifier = Modifier
                 .fillMaxSize() // Preenche toda a tela
-                .padding(16.dp), // Adiciona um padding para evitar que os botões fiquem colados nas bordas
-            verticalArrangement = Arrangement.Center, // Alinha verticalmente ao centro
+                .padding(innerPadding), // Adiciona um padding para evitar que os botões fiquem colados nas bordas
+            verticalArrangement = Arrangement.spacedBy(16.dp), // Alinha verticalmente ao centro
             horizontalAlignment = Alignment.CenterHorizontally, // Alinha horizontalmente ao centro
         ) {
-            CustomFAB(onClick = { println("CustomFAB") })
-            CustomFABSmall(onClick = { println("CustomFABSmall") })
-            CustomFABLarge(onClick = { println("CustomFABLarge") })
-            CustomFABExtended(onClick = { println("CustomFABExtended") })
-
+            CustomBasicCard()
+            CustomFilledCard(stateUser = true)
+//            CustomFilledCard(stateUser = false)
+            CustomElevatedCard()
+            CustomOutlinedCard()
+            CustomCompleteCard()
         }
     }
 }
