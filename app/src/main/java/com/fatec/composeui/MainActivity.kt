@@ -50,6 +50,8 @@ import com.fatec.composeui.ui.components.fab.CustomFABExtended
 import com.fatec.composeui.ui.components.fab.CustomFABLarge
 import com.fatec.composeui.ui.components.fab.CustomFABSmall
 import com.fatec.composeui.ui.components.fab.PageFAB
+import com.fatec.composeui.ui.screen.WhatsAppChat
+import com.fatec.composeui.ui.screen.WhatsAppScreen
 import com.fatec.composeui.ui.theme.ComposeUITheme
 
 class MainActivity : ComponentActivity() {
@@ -66,7 +68,8 @@ class MainActivity : ComponentActivity() {
 //                CustomBottomAppBar()
 //                PageButtons()
 //                PageFAB()
-                PageCard()
+//                PageCard()
+                WhatsAppScreen()
             }
         }
     }
