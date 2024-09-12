@@ -1,4 +1,4 @@
-package com.fatec.composeui.ui.screen
+package com.fatec.composeui.ui.screen.whatsapp
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -12,12 +12,12 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.fatec.composeui.ui.screen.whatsapp.model.ChatMessage
+import com.fatec.composeui.ui.screen.whatsapp.ui.components.ChatMessageItem
+import com.fatec.composeui.ui.screen.whatsapp.ui.components.InfoCard
 import com.fatec.composeui.ui.theme.ComposeUITheme
 import com.fatec.composeui.ui.theme.Green40
 
@@ -103,80 +103,11 @@ fun WhatsAppChat(innerPadding: PaddingValues) {
     }
 }
 
-@Composable
-fun ChatMessageItem(message: ChatMessage) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = if (message.isSent) Arrangement.End else Arrangement.Start
-    ) {
-        if (message.isSent) {
-            Spacer(modifier = Modifier.weight(1f))
-        }
-
-        Card(
-            modifier = Modifier
-                .padding(8.dp)
-                .clip(
-                    if (message.isSent) RoundedCornerShape(16.dp, 16.dp, 0.dp, 16.dp)
-                    else RoundedCornerShape(16.dp, 16.dp, 16.dp, 0.dp)
-                ),
-            colors = CardDefaults.cardColors(
-                containerColor = if (message.isSent) Green40 else Color.White
-            ),
-            elevation = CardDefaults.elevatedCardElevation(
-                defaultElevation = 2.dp
-            )
-        ) {
-            Text(
-                text = message.text,
-                modifier = Modifier.padding(12.dp),
-                color = if (message.isSent) Color.White else Color.Black,
-                textAlign = if (message.isSent) TextAlign.End else TextAlign.Start,
-                fontSize = 16.sp
-            )
-        }
-
-        if (!message.isSent) {
-            Spacer(modifier = Modifier.weight(1f))
-        }
-    }
-}
-
-@Composable
-fun InfoCard(onDismiss: () -> Unit, innerPadding: PaddingValues) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(innerPadding)
-            .padding(16.dp),
-        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp),
-        shape = RoundedCornerShape(16.dp)
-    ) {
-        Column(
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text("Informação do Usuário", style = MaterialTheme.typography.headlineSmall)
-            Spacer(modifier = Modifier.height(16.dp))
-            Text("Nome: John Doe", style = MaterialTheme.typography.bodyLarge)
-            Text("Email: john.doe@example.com", style = MaterialTheme.typography.bodyLarge)
-            Text("Telefone: +55 11 99999-9999", style = MaterialTheme.typography.bodyLarge)
-            Spacer(modifier = Modifier.height(16.dp))
-            Button(onClick = onDismiss) {
-                Text("Fechar")
-            }
-        }
-    }
-}
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun WhatsAppScreenPreview() {
     ComposeUITheme {
         WhatsAppScreen()
     }
 }
-
-data class ChatMessage(val text: String, val isSent: Boolean)

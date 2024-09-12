@@ -30,7 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.fatec.composeui.ui.screen.WhatsAppScreen
+import com.fatec.composeui.ui.screen.whatsapp.WhatsAppScreen
 import com.fatec.composeui.ui.theme.ComposeUITheme
 
 class MainActivity : ComponentActivity() {
@@ -49,6 +49,7 @@ class MainActivity : ComponentActivity() {
 //                PageFAB()
 //                PageCard()
                 WhatsAppScreen()
+//                FloatingActionButtonChatScreen()
             }
         }
     }
