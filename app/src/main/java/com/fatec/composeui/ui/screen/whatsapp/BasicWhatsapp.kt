@@ -52,7 +52,13 @@ fun WhatsAppScreen() {
 
 @Composable
 fun WhatsAppChat(innerPadding: PaddingValues) {
+    //= é usado para atribuir um objeto mutableStateListOf à chatMessages, permitindo
+    // que você adicione ou remova mensagens da lista.
     val chatMessages = remember { mutableStateListOf<ChatMessage>() }
+
+    //by é usado para delegar a propriedade messageText para um objeto mutableStateOf,
+    // que é gerenciado pelo remember. Isso permite que o estado da messageText seja observado
+    // e re-renderize a interface do usuário quando houver alterações.
     var messageText by remember { mutableStateOf("") }
 
     Column(
